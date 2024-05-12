@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium Bootstrap 4 Landing Page Template">
+    <meta name="keywords" content="bootstrap 4, premium, marketing, multipurpose">
+    <meta content="Themesdesign" name="author">
+<!--#401F71-->
+	<title>Join the WaitList!</title>
+
+	<link rel="icon" type="image/png" href="{{url_for('static', filename='img/logo.png')}}">
+    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{url_for('static', filename='css/materialdesignicons.min.css')}}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/pe-icon-7-stroke.css')}}">
+    <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{url_for('static', filename='css/global.css')}}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{url_for('static', filename='colors/cyan.css')}}" id="color-opt">
+
+	<script defer="" src="{{url_for('static', filename='build/bundle.js')}}"></script>
+</head>
+
+<body>
+
+
+<div>
+	<div id="navbar" class="">
+		<nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark navbar-purple" id="navbar">
+			<div class="container"><a href="{{url_for('home')}}" class="navbar-brand logo text-uppercase">
+				<img src="{{url_for('static', filename='img/logo.png')}}" style="width: 70px">Propout</a>
+				<button class="navbar-toggler btn btn-secondary" value="" style="">
+					<i class="mdi mdi-menu"></i>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<ul class="navbar-nav navbar-center" id="navbar-navlist">
+						<li class="nav-item"><a href="{{url_for('home')}}" class="nav-link active">Home</a></li>
+					</ul>
+					<div class="nav-button ms-auto">
+						<ul class="nav navbar-nav navbar-end">
+							<li>
+								<button class="btn btn-primary navbar-btn btn-rounded waves-effect waves-light btn btn-secondary" value="">Join the Waitlist</button></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+	<section class="section bg-home home-half home-registration common-section" id="home">
+		<div class="bg-overlay"></div>
+		<div class="display-table">
+			<div class="display-table-cell">
+				<div class="container">
+					<div class="vertical-content row">
+						<div class="col-lg-7 text-white text-start">
+							<div class="mt-4">
+								<h4 class="home-small-title">Propout.xyz</h4>
+						<h1 class="home-title">Welcome to the Future of Homeownership</h1>
+							<p class="pt-3 home-desc home-subtitle-width-100">Making buying and selling real estate easier than ever by combining
+								traditional and blockchain property transactions with smart contracts, leveraging the blockchain.</p>
+							<a href="{{url_for('home')}}" class="btn btn-primary mt-5 waves-effect waves-light">Get Started</a>
+							</div>
+						</div>
+						<div class="col-lg-4 offset-lg-1">
+							<div class="home-registration-form bg-white mt-4">
+						<h4 class="form-heading text-center mt-2">Fill In The Form Below</h4>
+						<form id="registration-form" class="registration-form">
+							<input id="exampleInputName1" type="text" class="form-control registration-input-box form-control" name="name" placeholder="Name">
+							<input id="exampleInputEmail1" type="email" class="form-control registration-input-box form-control" name="email" placeholder="Email">
+							<textarea rows="2" class="form-control registration-input-box form-control" name="wallet_address" placeholder="Wallet address"></textarea>
+							<button class="btn btn-primary w-100 waves-effect waves-light">Join The Waitlist</button>
+						</form>
+					</div>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	<div class="footer-alt">
+		<div class="container"><div class="row"><div class="col-lg-12">
+			<div class="float-start pull-none ">
+				<p class="copy-rights text-muted mb-3 mb-sm-0">2024
+						© propout.xyz </p></div>
+
+					<div class="float-end pull-none "><ul class="list-inline d-flex flex-wrap social m-0">
+						<li class="list-inline-item"><a href="#" class="social-icon"><i class="mdi mdi-facebook"></i></a></li>
+						<li class="list-inline-item"><a href="#" class="social-icon"><i class="mdi mdi-twitter"></i></a></li>
+						<li class="list-inline-item"><a href="#" class="social-icon"><i class="mdi mdi-linkedin"></i></a></li>
+						<li class="list-inline-item"><a href="#" class="social-icon"><i class="mdi mdi-google-plus"></i></a></li>
+						<li class="list-inline-item"><a href="#" class="social-icon"><i class="mdi mdi-microsoft-xbox"></i></a></li></ul></div>
+		</div></div></div></div>
+</div>
+</body>
+</html>
