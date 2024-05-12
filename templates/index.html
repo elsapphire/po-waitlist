@@ -32,7 +32,6 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<ul class="navbar-nav navbar-center" id="navbar-navlist">
-						<li class="nav-item"><a href="{{url_for('home')}}" class="nav-link active">Home</a></li>
 					</ul>
 					<div class="nav-button ms-auto">
 						<ul class="nav navbar-nav navbar-end">
@@ -55,18 +54,23 @@
 							<div class="mt-4">
 								<h4 class="home-small-title">Propout.xyz</h4>
 						<h1 class="home-title">Welcome to the Future of Homeownership</h1>
-							<p class="pt-3 home-desc home-subtitle-width-100">Making buying and selling real estate easier than ever by combining
-								traditional and blockchain property transactions with smart contracts, leveraging the blockchain.</p>
+								<p class="pt-3 home-desc home-subtitle-width-100">Africa's Decentralized Real Estate Marketplace And Network Technology</p>
+								<p class="home-desc home-subtitle-width-100">Listing, Buying and Selling of real estate at your fingertips.</p>
 							<a href="{{url_for('home')}}" class="btn btn-primary mt-5 waves-effect waves-light">Get Started</a>
 							</div>
 						</div>
 						<div class="col-lg-4 offset-lg-1">
 							<div class="home-registration-form bg-white mt-4">
+						{% if joined %}
+						<h4 class="form-heading text-center mt-2">You have joined the waitlist!</h4>
+						{% else %}
 						<h4 class="form-heading text-center mt-2">Fill In The Form Below</h4>
-						<form id="registration-form" class="registration-form">
+						{%endif%}
+						<form id="registration-form" class="registration-form", method="post">
 							<input id="exampleInputName1" type="text" class="form-control registration-input-box form-control" name="name" placeholder="Name">
 							<input id="exampleInputEmail1" type="email" class="form-control registration-input-box form-control" name="email" placeholder="Email">
-							<textarea rows="2" class="form-control registration-input-box form-control" name="wallet_address" placeholder="Wallet address"></textarea>
+							<textarea rows="2" class="form-control registration-input-box form-control" name="wallet_address" placeholder="Wallet address - ETH"></textarea>
+<!--							<p style="padding-top: 1px">*optional</p>-->
 							<button class="btn btn-primary w-100 waves-effect waves-light">Join The Waitlist</button>
 						</form>
 					</div>
