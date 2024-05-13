@@ -9,7 +9,9 @@ from datetime import date
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://waitlist_db_2ksx_user:jxQVh4aezLAczaip1KAOyYPDiDQytLOV@dpg-cp16m2mn7f5s73fb3jhg-a.oregon-postgres.render.com/waitlist_db_2ksx'
+
 app.config['SECRET_KEY'] = 'csrf'
 
 
@@ -86,9 +88,9 @@ def home():
 def success():
     return render_template('success.html')
 
+# @admin_only
 
 @app.route('/register-admin', methods=['GET', 'POST'])
-@admin_only
 def register():
     if request.method == 'POST':
         name = request.form['name']
@@ -168,5 +170,5 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='192.168.43.237')
+    app.run(debug=False)
 
