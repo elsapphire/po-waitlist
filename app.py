@@ -88,9 +88,9 @@ def home():
 def success():
     return render_template('success.html')
 
-# @admin_only
 
 @app.route('/register-admin', methods=['GET', 'POST'])
+@admin_only
 def register():
     if request.method == 'POST':
         name = request.form['name']
@@ -117,7 +117,7 @@ def login():
         password = request.form['password']
 
         user = db.session.execute(db.select(User).where(User.email == email)).scalar()
-        print(user)
+        # print(user)
         if not user:
             flash("That email does not exist, please try again.")
             return redirect(url_for('login'))
