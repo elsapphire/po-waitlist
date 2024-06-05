@@ -9,8 +9,8 @@ from datetime import date
 
 
 app = Flask(__name__)
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://waitlist_db_2ksx_user:jxQVh4aezLAczaip1KAOyYPDiDQytLOV@dpg-cp16m2mn7f5s73fb3jhg-a.oregon-postgres.render.com/waitlist_db_2ksx'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://waitlist_db_2ksx_user:jxQVh4aezLAczaip1KAOyYPDiDQytLOV@dpg-cp16m2mn7f5s73fb3jhg-a.oregon-postgres.render.com/waitlist_db_2ksx'
 
 app.config['SECRET_KEY'] = 'csrf'
 
