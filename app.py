@@ -91,7 +91,6 @@ def success():
 # @admin_only
 
 @app.route('/register-admin', methods=['GET', 'POST'])
-@admin_only
 def register():
     if request.method == 'POST':
         name = request.form['name']
