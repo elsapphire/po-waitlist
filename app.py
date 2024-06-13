@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, render_template, request, redirect, url_for, abort, flash
 from flask_login import UserMixin, login_user, login_required, current_user, LoginManager, logout_user
 from flask_sqlalchemy import SQLAlchemy
@@ -9,10 +11,10 @@ from datetime import date
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://waitlist_db_2ksx_user:jxQVh4aezLAczaip1KAOyYPDiDQytLOV@dpg-cp16m2mn7f5s73fb3jhg-a.oregon-postgres.render.com/waitlist_db_2ksx'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('LNK')
 
-app.config['SECRET_KEY'] = 'csrf'
+app.config['SECRET_KEY'] = os.getenv('CSRF')
 
 
 db = SQLAlchemy()
@@ -62,7 +64,7 @@ def admin_only(f):
     return decorated_function
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/waitlist', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
         name = request.form['name']
@@ -84,12 +86,12 @@ def home():
     return render_template('index.html', joined=joined)
 
 
-@app.route('/success')
+@app.route('/waitlist/success')
 def success():
     return render_template('success.html')
 
 
-@app.route('/register-admin', methods=['GET', 'POST'])
+@app.route('/waitlist/register-admin', methods=['GET', 'POST'])
 @admin_only
 def register():
     if request.method == 'POST':
@@ -110,7 +112,7 @@ def register():
     return render_template('register.html')
 
 
-@app.route('/admin-login', methods=['GET', 'POST'])
+@app.route('/waitlist/admin-login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         email = request.form['email']
@@ -130,7 +132,7 @@ def login():
     return render_template('login.html', user=current_user)
 
 
-@app.route('/admin-dashboard')
+@app.route('/waitlist/admin-dashboard')
 @login_required
 def dashboard():
     waitlisters = db.session.execute(db.select(Waitlisters)).scalars().all()
@@ -139,21 +141,21 @@ def dashboard():
                            num_of_waitlisters=num_of_waitlisters)
 
 
-@app.route('/waitlist-table')
+@app.route('/waitlist/waitlist-table')
 @login_required
 def table():
     waitlisters = db.session.execute(db.select(Waitlisters)).scalars().all()
     return render_template('tables.html', user=current_user, waitlisters=waitlisters)
 
 
-@app.route('/view-admins')
+@app.route('/waitlist/view-admins')
 @admin_only
 def admins():
     admin_users = db.session.execute(db.select(User)).scalars().all()
     return render_template('admins.html', admins=admin_users, user=current_user)
 
 
-@app.route('/delete_admin')
+@app.route('/waitlist/delete_admin')
 @admin_only
 def delete_admin():
     admin_id = request.args.get('id')
@@ -163,7 +165,7 @@ def delete_admin():
     return redirect(url_for('admins'))
 
 
-@app.route('/logout')
+@app.route('/waitlist/logout')
 def logout():
     logout_user()
     return redirect(url_for('login'))
