@@ -12,9 +12,9 @@ from datetime import date
 
 app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('LNK')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('LNK')
 
-app.config['SECRET_KEY'] = os.getenv('CSRF')
+app.config['SECRET_KEY'] = os.environ.get('CSRF')
 
 
 db = SQLAlchemy()
